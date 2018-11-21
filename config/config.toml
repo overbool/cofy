@@ -1,0 +1,6 @@
+
+title = "Cofy global configuration"
+
+[server]
+debug = false
+port = 6060

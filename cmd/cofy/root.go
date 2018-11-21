@@ -23,8 +23,16 @@ var rootCMD = &cobra.Command{
 	Use:   "serve [option]",
 	Short: "serve - Static file serving and directory listing",
 	Run: func(cmd *cobra.Command, args []string) {
+		gin.SetMode(gin.DebugMode)
 		r := gin.Default()
-		log.Printf("Start to listening the incoming requests on http address: %s", ":8080")
-		log.Printf(http.ListenAndServe(":8080", r).Error())
+
+		r.GET("/ping", func(c *gin.Context) {
+			c.JSON(200, gin.H{
+				"message": "pong",
+			})
+		})
+
+		log.Printf("Start to listening the incoming requests on http address: %s", ":6060")
+		log.Printf(http.ListenAndServe(":6060", r).Error())
 	},
 }
