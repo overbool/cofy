@@ -4,3 +4,9 @@ title = "Cofy global configuration"
 [server]
 debug = false
 port = 6060
+
+[db]
+username = "root"
+password = "root"
+addr = "127.0.0.1:3306"
+name = "cofy"
