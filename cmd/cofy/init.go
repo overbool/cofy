@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	"io/ioutil"
 	"os"
 	"path"
@@ -9,6 +8,7 @@ import (
 
 	"github.com/gobuffalo/packd"
 	"github.com/gobuffalo/packr/v2"
+	"github.com/spf13/cobra"
 )
 
 var initCMD = &cobra.Command{
@@ -20,6 +20,13 @@ var initCMD = &cobra.Command{
 			panic(err)
 		}
 
+		// check whether the repo root is existent
+		if _, err := os.Stat(p); !os.IsNotExist(err) {
+			cmd.Println("cofy configuration file already exists")
+			return
+		}
+
+		cmd.Printf("initializing cofy at %s", p)
 		if err := initConfig(p); err != nil {
 			panic(err)
 		}
