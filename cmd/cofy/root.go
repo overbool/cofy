@@ -3,6 +3,9 @@ package main
 import (
 	"fmt"
 	"github.com/overbool/cofy/common"
+	"github.com/overbool/cofy/core/storage/mysql"
+	"github.com/overbool/cofy/model"
+	"github.com/overbool/cofy/router"
 	"github.com/spf13/viper"
 	"log"
 	"net/http"
@@ -40,11 +43,16 @@ var rootCMD = &cobra.Command{
 		}
 
 		r := gin.Default()
-		r.GET("/ping", func(c *gin.Context) {
-			c.JSON(200, gin.H{
-				"message": "pong",
-			})
-		})
+		router.Load(r)
+
+		// db
+		db, err := mysql.New()
+		if err != nil {
+			panic(err)
+		}
+		defer db.Close()
+
+		db.DB().AutoMigrate(&model.User{})
 
 		port := fmt.Sprintf(":%s", viper.GetString("server.port"))
 		log.Printf("Start to listening the incoming requests on http address: %s", port)

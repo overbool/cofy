@@ -15,7 +15,7 @@ var versionCMD = &cobra.Command{
 	Use:   "version [flags]",
 	Short: "Show version about app",
 	Run: func(cmd *cobra.Command, args []string) {
-		cmd.Printf("Up version: %s-%s\n", cofy.CurrentVersion, cofy.CurrentCommit)
+		cmd.Printf("Cofy version: %s-%s\n", cofy.CurrentVersion, cofy.CurrentCommit)
 		if all {
 			cmd.Printf("App build date: %s\n", cofy.BuildDate)
 			cmd.Printf("System version: %s\n", cofy.Platform)
