@@ -15,7 +15,6 @@ var (
 	ErrMissingHeader = errors.New("the length of the `Authorization` header is zero")
 )
 
-
 // Context is the context of the JSON web token.
 type Context struct {
 	ID       uint
@@ -80,7 +79,6 @@ func Sign(ctx *gin.Context, c Context, secret string) (tokenString string, err e
 
 	return
 }
-
 
 // secretFunc validates the secret format.
 func secretFunc(secret string) jwt.Keyfunc {

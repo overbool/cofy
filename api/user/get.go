@@ -1,10 +1,11 @@
 package user
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/overbool/cofy/model"
 	"github.com/overbool/cofy/pkg/errno"
-	"net/http"
 )
 
 func Get(c *gin.Context) {
@@ -19,8 +20,8 @@ func Get(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, Response{
-		Code: 0,
+		Code:    0,
 		Message: "get user successfully",
-		Data: user,
+		Data:    user,
 	})
 }

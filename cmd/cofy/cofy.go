@@ -15,7 +15,7 @@ const (
 	EnvDir = "COPY_PATH"
 )
 
-func detectRepoRoot() (string, error){
+func detectRepoRoot() (string, error) {
 	p := DefaultPathRoot
 	if os.Getenv(EnvDir) != "" {
 		p = os.Getenv(EnvDir)

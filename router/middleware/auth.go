@@ -1,11 +1,12 @@
 package middleware
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/overbool/cofy/api/user"
 	"github.com/overbool/cofy/pkg/errno"
 	"github.com/overbool/cofy/pkg/token"
-	"net/http"
 )
 
 func AuthMiddleware() gin.HandlerFunc {

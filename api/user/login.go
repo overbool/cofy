@@ -1,11 +1,12 @@
 package user
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/overbool/cofy/model"
 	"github.com/overbool/cofy/pkg/errno"
 	"github.com/overbool/cofy/pkg/token"
-	"net/http"
 )
 
 func Login(c *gin.Context) {
@@ -40,8 +41,8 @@ func Login(c *gin.Context) {
 		})
 	} else {
 		c.JSON(http.StatusOK, Response{
-			Code:    0,
-			Data:    t,
+			Code: 0,
+			Data: t,
 		})
 	}
 

@@ -2,18 +2,18 @@ package main
 
 import (
 	"fmt"
-	"github.com/overbool/cofy/common"
-	"github.com/overbool/cofy/core/storage/mysql"
-	"github.com/overbool/cofy/model"
-	"github.com/overbool/cofy/router"
-	"github.com/spf13/viper"
 	"log"
 	"net/http"
 	"os"
 	"path/filepath"
 
 	"github.com/gin-gonic/gin"
+	"github.com/overbool/cofy/common"
+	"github.com/overbool/cofy/core/storage/mysql"
+	"github.com/overbool/cofy/model"
+	"github.com/overbool/cofy/router"
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 var root string

@@ -1,10 +1,11 @@
 package user
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/overbool/cofy/model"
 	"github.com/overbool/cofy/pkg/errno"
-	"net/http"
 )
 
 func Register(c *gin.Context) {

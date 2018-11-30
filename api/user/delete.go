@@ -1,11 +1,12 @@
 package user
 
 import (
+	"net/http"
+	"strconv"
+
 	"github.com/gin-gonic/gin"
 	"github.com/overbool/cofy/model"
 	"github.com/overbool/cofy/pkg/errno"
-	"net/http"
-	"strconv"
 )
 
 func Delete(c *gin.Context) {
